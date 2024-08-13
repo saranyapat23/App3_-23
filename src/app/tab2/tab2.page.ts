@@ -1,16 +1,27 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonIcon, IonChip, IonAvatar, IonDatetime, IonInput, IonList } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+
+import { addIcons } from 'ionicons';
+import { close, closeCircle, pin } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent ,IonItem ,IonLabel ,IonIcon ,IonChip ,IonAvatar ,IonDatetime ,IonInput ,IonList]
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor() {
+    addIcons({ close, closeCircle, pin });
+
+  }
+  isWeekday = (dateString: string) => {
+    const date = new Date(dateString);
+    const utcDay = date.getUTCDay();
+    return utcDay !== 0 && utcDay !== 6;
+  };
 
 }
